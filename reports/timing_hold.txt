@@ -1,0 +1,66 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+---------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (lin64) Build 5239630 Fri Nov 08 22:34:34 MST 2024
+| Date         : Mon Mar  9 22:00:31 2026
+| Host         : thequietprotocol running 64-bit Ubuntu 24.04.4 LTS
+| Command      : report_timing -hold -file reports/timing_hold.txt
+| Design       : top
+| Device       : 7a35t-cpg236
+| Speed File   : -1  PRODUCTION 1.23 2018-06-13
+| Design State : Routed
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+Timing Report
+
+Slack (MET) :             0.265ns  (arrival time - required time)
+  Source:                 div_clk_reg[0]/C
+                            (rising edge-triggered cell FDCE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Destination:            div_clk_reg[0]/D
+                            (rising edge-triggered cell FDCE clocked by clk  {rise@0.000ns fall@5.000ns period=10.000ns})
+  Path Group:             clk
+  Path Type:              Hold (Min at Fast Process Corner)
+  Requirement:            0.000ns  (clk rise@0.000ns - clk rise@0.000ns)
+  Data Path Delay:        0.357ns  (logic 0.186ns (52.035%)  route 0.171ns (47.965%))
+  Logic Levels:           1  (LUT1=1)
+  Clock Path Skew:        0.000ns (DCD - SCD - CPR)
+    Destination Clock Delay (DCD):    1.959ns
+    Source Clock Delay      (SCD):    1.446ns
+    Clock Pessimism Removal (CPR):    0.513ns
+
+    Location             Delay type                Incr(ns)  Path(ns)    Netlist Resource(s)
+  -------------------------------------------------------------------    -------------------
+                         (clock clk rise edge)        0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         0.226     0.226 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           0.631     0.858    clk_IBUF
+    BUFGCTRL_X0Y1        BUFG (Prop_bufg_I_O)         0.026     0.884 r  clk_IBUF_BUFG_inst/O
+                         net (fo=2, routed)           0.563     1.446    clk_IBUF_BUFG
+    SLICE_X36Y46         FDCE                                         r  div_clk_reg[0]/C
+  -------------------------------------------------------------------    -------------------
+    SLICE_X36Y46         FDCE (Prop_fdce_C_Q)         0.141     1.587 f  div_clk_reg[0]/Q
+                         net (fo=3, routed)           0.171     1.759    div_clk[0]
+    SLICE_X36Y46         LUT1 (Prop_lut1_I0_O)        0.045     1.804 r  div_clk[0]_i_1/O
+                         net (fo=1, routed)           0.000     1.804    p_0_in[0]
+    SLICE_X36Y46         FDCE                                         r  div_clk_reg[0]/D
+  -------------------------------------------------------------------    -------------------
+
+                         (clock clk rise edge)        0.000     0.000 r  
+    W5                                                0.000     0.000 r  clk (IN)
+                         net (fo=0)                   0.000     0.000    clk
+    W5                   IBUF (Prop_ibuf_I_O)         0.414     0.414 r  clk_IBUF_inst/O
+                         net (fo=1, routed)           0.685     1.099    clk_IBUF
+    BUFGCTRL_X0Y1        BUFG (Prop_bufg_I_O)         0.029     1.128 r  clk_IBUF_BUFG_inst/O
+                         net (fo=2, routed)           0.832     1.959    clk_IBUF_BUFG
+    SLICE_X36Y46         FDCE                                         r  div_clk_reg[0]/C
+                         clock pessimism             -0.513     1.446    
+    SLICE_X36Y46         FDCE (Hold_fdce_C_D)         0.092     1.538    div_clk_reg[0]
+  -------------------------------------------------------------------
+                         required time                         -1.538    
+                         arrival time                           1.804    
+  -------------------------------------------------------------------
+                         slack                                  0.265    
+
+
+
+

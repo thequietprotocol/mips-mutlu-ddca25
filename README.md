@@ -25,6 +25,7 @@ Labs 1–3 cover basic circuit drawing, FPGA toolflow, and combinational Verilog
 
 ```
 .
+├── generate_reports.tcl
 ├── lab4/
 │   ├── constraints/
 │   │   └── Basys3-Master.xdc
@@ -92,7 +93,14 @@ Labs 1–3 cover basic circuit drawing, FPGA toolflow, and combinational Verilog
 │   └── lab9.asm
 ├── .gitignore
 ├── mips_reference_data.pdf
-└── README.md
+├── README.md
+└── reports/
+    ├── clocks_report.txt
+    ├── io_report.txt
+    ├── power_report.txt
+    ├── timing_hold.txt
+    ├── timing_setup.txt
+    └── utilization_report.txt
 ```
 
 ---
@@ -131,6 +139,12 @@ The script runs the full flow: synthesis → implementation → bitstream genera
 Lab 7 has no FPGA component — assembly is run directly in the MARS simulator via `run_mars.bat`.
 
 ---
+There is generate_reports.tcl script to generate clock, timing, power, and utilization reports. 
+From home folder, run: 
+
+```bash
+vivado -mode batch -souce ./generate_reports.tcl
+```
 
 ## Lab 9 — The Performance of MIPS (Capstone)
 
@@ -195,3 +209,4 @@ The MIPS assembly source is located in `lab9/lab9.asm`. The file was assembled u
 - Patterson & Hennessy, *Computer Organization and Design* (MIPS Edition)
 - [Digilent Basys 3 Reference Manual](https://digilent.com/reference/programmable-logic/basys-3/reference-manual)
 - [MARS MIPS Simulator](https://computerscience.missouristate.edu/mars-mips-simulator.htm)
+
